@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- === Using setter === -->
+	<!-- bean creation for HelloWorld class -->
+	<bean id="helloWorld" class="com.bridgelabz.SpringStandalone.HelloWorld"
+		init-method="init" destroy-method="destroy">
+		<!-- property name should be similar to the name of set method -->
+		<property name="message1" value="Hello World!" />
+		<property name="message2" value="parent helloworld bean message"></property>
+	</bean>
+
+	<!-- === using constructor === -->
+	<!-- bean creation for HelloWorld2 class -->
+	<bean id="helloWorld2" class="com.bridgelabz.SpringStandalone.HelloWorld2"
+		init-method="init" destroy-method="destroy">
+		<constructor-arg type="java.lang.String" value="Zara"></constructor-arg>
+	</bean>
+
+	<!-- calling the methods for before initialization and after initialization of beans -->
+	<bean class="com.bridgelabz.SpringStandalone.InitHelloWorld" />
+	
+	<!-- ======================= bean inheritance ========================= -->
+	<!-- bean inheritance=> parent bean helloworld, child bean helloIndia -->
+	<bean id="helloIndia" class="com.bridgelabz.SpringStandalone.HelloIndia" parent="helloWorld">
+		<property name="message1" value="hello India"/>
+		<property name="message3" value="child bean of helloworld"></property>
+	</bean>
+
+</beans>

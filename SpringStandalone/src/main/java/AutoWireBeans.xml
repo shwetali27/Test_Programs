@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- ======================== AutoWiring by name ========================= -->
+	<!-- Definition for textEditor bean -->
+
+	<!-- <bean id="textEditor" class="com.bridgelabz.autoWiring.TextEditor" 
+		autowire="byName"> <property name="name" value="Generic Text Editor" /> </bean> -->
+
+	<!-- Definition for spellChecker bean dependent on bean id -->
+	<!-- <bean id="spellChecker" class="com.bridgelabz.autoWiring.SpellChecker"> 
+		</bean> -->
+
+
+
+	<!-- ======================== AutoWiring by type ========================= -->
+	<!-- Definition for textEditor bean -->
+
+	<bean id="textEditor" class="com.bridgelabz.autoWiring.TextEditor"
+		autowire="byType">
+		<property name="name" value="Generic Text Editor" />
+	</bean>
+
+	<!-- Definition for spellChecker by type independent of bean id -->
+	<bean id="spcheck" class="com.bridgelabz.autoWiring.SpellChecker"></bean>
+
+
+
+	<!-- ======================== AutoWiring by Constructor ========================= -->
+	<!-- Definition for textEditor bean -->
+
+	<!-- <bean id="textEditor" class="com.bridgelabz.autoWiring.TextEditor" 
+		autowire="constructor"> <constructor-arg value="Generic Text Editor"></constructor-arg> 
+		</bean> -->
+
+	<!-- Definition for spellChecker by type independent of bean id -->
+	<!-- <bean id="spcheck" class="com.bridgelabz.autoWiring.SpellChecker"></bean> -->
+
+</beans>
